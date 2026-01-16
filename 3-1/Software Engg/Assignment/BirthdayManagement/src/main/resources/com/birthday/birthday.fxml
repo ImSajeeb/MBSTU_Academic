@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+
+<VBox spacing="10" alignment="CENTER"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.birthday.BirthdayController"
+      prefWidth="550">
+
+    <Label text="🎂 জন্মদিন ব্যবস্থাপনা সিস্টেম"
+           style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+
+    <TextField fx:id="nameField"
+               promptText="নাম লিখুন"/>
+
+    <DatePicker fx:id="datePicker"/>
+
+    <HBox spacing="10">
+        <Button text="যোগ করুন" onAction="#addBirthday"/>
+        <Button text="ফর্ম পরিষ্কার" onAction="#clearForm"/>
+<!--        <Button text="মুছে ফেলুন" onAction="#clearForm"/>-->
+    </HBox>
+
+    <TextField fx:id="searchField"
+               promptText="নাম বা মাস দিয়ে খুঁজুন"
+               onKeyReleased="#search"/>
+
+    <HBox spacing="10">
+<!--        <Button text="যোগ করুন" onAction="#addBirthday"/>-->
+        <Button text="মুছে ফেলুন" onAction="#deleteBirthday"/>
+<!--        <Button text="ফর্ম পরিষ্কার" onAction="#clearForm"/>-->
+    </HBox>
+
+
+    <TableView fx:id="tableView" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="nameCol" text="নাম" prefWidth="250"/>
+            <TableColumn fx:id="dateCol" text="জন্ম তারিখ" prefWidth="200"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="statusLabel"
+           style="-fx-text-fill:green;"/>
+
+</VBox>
