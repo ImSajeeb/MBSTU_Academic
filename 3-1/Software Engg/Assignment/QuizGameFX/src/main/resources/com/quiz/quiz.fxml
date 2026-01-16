@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.quiz.QuizController"
+      alignment="CENTER"
+      spacing="25"
+      prefWidth="450"
+      prefHeight="400"
+      style="-fx-padding:30;">
+
+    <!-- ================= NAME SCREEN ================= -->
+    <VBox fx:id="namePane"
+          alignment="CENTER"
+          spacing="15">
+
+        <Label text="🎯 Quiz Game"
+               style="-fx-font-size:20px; -fx-font-weight:bold;"/>
+
+        <Label text="Enter Your Name"
+               style="-fx-font-size:14px;"/>
+
+        <TextField fx:id="nameField"
+                   prefWidth="250"
+                   alignment="CENTER"
+                   promptText="Your Name"/>
+
+        <Button text="Start Quiz"
+                prefWidth="150"
+                onAction="#startQuiz"/>
+    </VBox>
+
+
+    <!-- ================= QUIZ SCREEN ================= -->
+    <VBox fx:id="quizPane"
+          alignment="CENTER"
+          spacing="15"
+          visible="false">
+
+        <Label fx:id="questionLabel"
+               wrapText="true"
+               prefWidth="380"
+               style="-fx-font-size:15px; -fx-font-weight:bold;"
+               alignment="CENTER"/>
+
+        <VBox spacing="8" alignment="CENTER_LEFT">
+            <RadioButton fx:id="opt1"/>
+            <RadioButton fx:id="opt2"/>
+            <RadioButton fx:id="opt3"/>
+            <RadioButton fx:id="opt4"/>
+        </VBox>
+
+        <HBox spacing="20"
+              alignment="CENTER">
+
+            <Button text="Next"
+                    prefWidth="120"
+                    onAction="#nextQuestion"/>
+
+            <Button text="Exit"
+                    prefWidth="120"
+                    onAction="#exit"/>
+        </HBox>
+    </VBox>
+
+
+    <!-- ================= RESULT SCREEN ================= -->
+    <VBox fx:id="resultPane"
+          alignment="CENTER"
+          spacing="15"
+          visible="false">
+
+        <Label fx:id="status"
+               style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+        <HBox spacing="15"
+              alignment="CENTER">
+
+            <Button text="View Score"
+                    prefWidth="120"
+                    onAction="#viewScore"/>
+
+            <Button text="Restart"
+                    prefWidth="120"
+                    onAction="#restart"/>
+
+            <Button text="Exit"
+                    prefWidth="120"
+                    onAction="#exit"/>
+        </HBox>
+    </VBox>
+
+</VBox>
