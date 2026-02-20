@@ -1,0 +1,24 @@
+% --- Rules for Arithmetic ---
+% Rule 1: Calculate Sum
+% usage: calc_sum(Number1, Number2, Result).
+calc_sum(A, B, Res) :-
+ Res is A + B.
+% Rule 2: Calculate Product (Multiplication)
+calc_prod(A, B, Res) :-
+ Res is A * B.
+% Rule 3: Calculate Average
+calc_avg(A, B, Res) :-
+ Res is (A + B) / 2.
+% --- Rules for Comparison ---
+% Rule 4: Find the Maximum of two numbers
+% If A is greater than B, then Max is A
+find_max(A, B, Max) :-
+ A > B,
+ Max is A.
+% If A is less than or equal to B, then Max is B
+find_max(A, B, Max) :-
+ A =< B,
+ Max is B.
+% Rule 5: Check if a number is positive
+is_positive(X) :-
+ X > 0.

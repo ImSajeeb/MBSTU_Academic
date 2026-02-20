@@ -1,0 +1,23 @@
+% --- FACTS ---
+% Relationships
+parent(john, mary).
+parent(john, tom).
+parent(mary, ann).
+parent(mary, fred).
+parent(tom, liz).
+% Gender
+male(john).
+male(tom).
+male(fred).
+female(mary).
+female(ann).
+female(liz).
+% --- RULES ---
+% Rule 1: X is a father if X is a parent AND X is male
+father(X, Y) :- parent(X, Y), male(X).
+% Rule 2: X is a mother if X is a parent AND X is female
+mother(X, Y) :- parent(X, Y), female(X).
+% Rule 3: X is a grandparent if X is parent of Z AND Z is parent of Y
+grandparent(X, Y) :- parent(X, Z), parent(Z, Y).
+% Rule 4: X and Y are siblings if they share the same parent Z
+sibling(X, Y) :- parent(Z, X), parent(Z, Y), X \= Y.

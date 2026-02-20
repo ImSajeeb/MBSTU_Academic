@@ -1,0 +1,17 @@
+% --- THE RULES---
+% Move 1: Grasp the banana
+move(state(middle, onbox, middle, hasnot), grasp, state(middle, onbox, middle, has)).
+% Move 2: Climb the box
+move(state(P, onfloor, P, H), climb, state(P, onbox, P, H)).
+% Move 3: Push the box
+move(state(P1, onfloor, P1, H), push(P1, P2), state(P2, onfloor, P2, H)).
+% Move 4: Walk
+move(state(P1, onfloor, B, H), walk(P1, P2), state(P2, onfloor, B, H)).
+% --- THE RECURSION ---
+% Base Case: The monkey already has the banana.
+canget(state(_, _, _, has)).
+% Recursive Case: Find a move and try again.
+canget(State1) :-
+ move(State1, Move, State2),
+ write('Monkey performs: '), write(Move), nl,
+ canget(State2).

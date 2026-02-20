@@ -1,0 +1,7 @@
+hanoi(1,Source,Destination,_):-
+ write('Move disk form'), write(Source), write('to'),write(Destination),nl.
+hanoi(N,Source,Destination,Auxilary):-
+ N>1, M is N-1,
+ hanoi(M,Source,Auxilary,Destination),
+ hanoi(1,Source,Destination,_),
+ hanoi(M,Auxilary,Destination,Source)
