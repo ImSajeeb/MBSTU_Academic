@@ -375,6 +375,7 @@ $$
 \boxed{
 H(z)=
 \frac{Y(z)}{W(z)}
+\cdot
 \frac{W(z)}{X(z)}
 }
 $$
